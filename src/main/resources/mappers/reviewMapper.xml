@@ -1,4 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.lesson03.mapper.ReviewMapper">
+    <select id="selectReview" parameterType="int" resultType="com.example.lesson03.domain.Review">
+        SELECT
+            `id`
+            , `storeId`
+            , `menu`
+            , `userName`
+            , `point`
+            , `review`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `new_review`
+        WHERE
+            `id` = 20
+    </select>
+    
+    <select id="selectReviewList" parameterType="int" resultType="com.example.lesson03.domain.Review">
+        SELECT
+            `id`
+            , `storeId`
+            , `menu`
+            , `userName`
+            , `point`
+            , `review`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `new_review`
+        WHERE
+            `id` = 20
+    </select>
+    
+    <insert id="insertReview" parameterType="com.example.lesson03.domain.Review">
+    	INSERT INTO `new_review` 
+    	(
+    		`storeId`
+    		,`menu`
+    		,`userName`
+    		,`point`
+    		,`review`
+    		,`createdAt`
+    		,`updatedAt`
+    	)
+    	VALUES
+    	(
+    		#{storeId}
+    		, #{menu}
+    		, #{userName}
+    		, #{point}
+    		, #{review}
+    		, NOW()
+    		, NOW()
+    	)
+    </insert>
+    
+    <insert id="insertReviewAsField" parameterType="map">
+    	INSERT INTO `new_review` 
+    	(
+    		`storeId`
+    		,`menu`
+    		,`userName`
+    		,`point`
+    		,`review`
+    		,`createdAt`
+    		,`updatedAt`
+    	)
+    	VALUES
+    	(
+    		#{storeId}
+    		, #{menu}
+    		, #{userName}
+    		, #{point}
+    		, #{review}
+    		, NOW()
+    		, NOW()
+    	)
+    </insert>
+</mapper>
