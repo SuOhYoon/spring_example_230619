@@ -20,4 +20,10 @@ public interface ReviewMapper {
 			@Param("userName") String userName, 
 			@Param("point") Double point, 
 			@Param("review") String review);
+	
+	public int updateReviewById(
+			@Param("id")int id, 
+			@Param("review")String review);
+	
+	public void deleteReviewById(int id);
 }
